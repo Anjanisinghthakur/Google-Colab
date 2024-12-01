@@ -1,0 +1,14 @@
+1)Find the search details for villas and houses with wireless internet access
+
+# Import your libraries
+import pyspark
+from pyspark.sql import SparkSession
+
+# Start writing code
+df=airbnb_search_details.filter((airbnb_search_details.property_type=='Villa') |
+(airbnb_search_details.property_type=='House')
+)
+df2=df.filter(df.amenities.like('%Wireless Internet%'))
+
+# To validate your solution, convert your final pySpark df to a pandas df
+df2.toPandas()
